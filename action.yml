@@ -10,6 +10,9 @@ inputs:
   dockerfile:
     description: 'Dockerfile used for the build'
     default: 'Dockerfile'
+  build-args:
+    description: 'Dockerfile build arguments'
+    default: ''
   target:
     description: 'Build target for multistage builds'
     required: true
@@ -45,7 +48,7 @@ runs:
         # More: https://github.com/moby/buildkit#--export-cache-options
         # And: https://github.com/docker/buildx#--cache-tonametypetypekeyvalue
         cache-to: type=local,mode=max,dest=/tmp/.buildx-cache-${{ inputs.name }}-new
-
+        build-args: ${{ inputs.build-args }}
     - name: Move cache
       shell: bash
       run: |
