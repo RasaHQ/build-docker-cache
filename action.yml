@@ -42,6 +42,7 @@ runs:
         # Set the desired build target here
         target: ${{ inputs.target }}
         push: false
+        load: true
         tags: ${{ inputs.tag }}
         cache-from: type=local,src=/tmp/.buildx-cache-${{ inputs.name }}
         # Note the mode=max here
