@@ -19,7 +19,7 @@ inputs:
   tag:
     description: 'Tag to add to the build container'
     required: true
-   skip-setup:
+  skip-setup:
     description: 'Skip setup of buildx. Useful if step is used more than once in one job.'
     default: false
 runs:
